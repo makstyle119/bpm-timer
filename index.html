@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPM Timer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card" aria-labelledby="appTitle">
+      <div class="header">
+        <p class="eyebrow">Browser-only metronome</p>
+        <h1 id="appTitle">BPM Timer</h1>
+        <p class="subtitle">Set a BPM, run it for a fixed time, or keep it going infinitely.</p>
+      </div>
+
+      <div class="beat-stage" aria-hidden="true">
+        <div id="beatPulse" class="beat-pulse">
+          <span>♪</span>
+        </div>
+      </div>
+
+      <div class="bpm-display" aria-live="polite">
+        <strong id="bpmDisplay">120</strong>
+        <span>BPM</span>
+      </div>
+
+      <div class="controls">
+        <label class="control control-wide" for="bpmRange">
+          <span>Beat speed</span>
+          <input id="bpmRange" type="range" min="30" max="240" value="120" />
+        </label>
+
+        <label class="control" for="bpmInput">
+          <span>BPM</span>
+          <input id="bpmInput" type="number" min="30" max="240" value="120" inputmode="numeric" />
+        </label>
+
+        <label class="control" for="minutesInput">
+          <span>Minutes</span>
+          <input id="minutesInput" type="number" min="1" max="240" value="5" inputmode="numeric" />
+        </label>
+      </div>
+
+      <label class="toggle-row" for="infiniteToggle">
+        <input id="infiniteToggle" type="checkbox" />
+        <span>Run infinite</span>
+      </label>
+
+      <div class="timer-card">
+        <div>
+          <span class="timer-label">Time left</span>
+          <strong id="timeLeft">05:00</strong>
+        </div>
+        <span id="statusText" class="status">Ready</span>
+      </div>
+
+      <div class="progress" aria-label="Timer progress">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+
+      <div class="actions">
+        <button id="startButton" class="primary" type="button">Start</button>
+        <button id="stopButton" type="button">Stop</button>
+        <button id="tapButton" type="button">Tap BPM</button>
+      </div>
+
+      <div class="presets" aria-label="BPM presets">
+        <button type="button" data-bpm="60">60</button>
+        <button type="button" data-bpm="90">90</button>
+        <button type="button" data-bpm="120">120</button>
+        <button type="button" data-bpm="140">140</button>
+        <button type="button" data-bpm="160">160</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
